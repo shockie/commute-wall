@@ -1,0 +1,12 @@
+{
+  "name": "commuting-wall",
+  "version": "1.0.0",
+  "description": "The commuting wall to show train departure times and the amount of rain to drop for the upcoming hour.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
