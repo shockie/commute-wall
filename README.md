@@ -6,6 +6,7 @@ The commuting wall to show train departure times and the amount of rain to drop 
 
 ```bash
 npm install
+npm run compile
 npm start
 ```
 
