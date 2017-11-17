@@ -1,10 +1,11 @@
 import Base64 from 'base-64';
 import config from '../config';
+import moment from 'moment';
 
 
 const fetcher = () => {
   const auth = Base64.encode(`${config.ns.auth.username}:${config.ns.auth.password}`);
-  const url = `http://localhost:3000/ns-proxy/ns-api-avt?station=${config.ns.base_station}`;
+  const url = `${config.base_uri}/ns-proxy/ns-api-avt?station=${config.ns.base_station}`;
 
   return fetch(url, {
     headers: {
@@ -22,7 +23,7 @@ const parser = (xml_data) => {
     let trains = [];
     xml_data.querySelectorAll('VertrekkendeTrein').forEach((train) => {
       trains.push({
-        departure_time: train.querySelector('VertrekTijd').textContent,
+        departure_time: moment(train.querySelector('VertrekTijd').textContent).format('HH:mm'),
         end_station: train.querySelector('EindBestemming').textContent,
         track: train.querySelector('RouteTekst') ? train.querySelector('RouteTekst').textContent : '',
         train_type: train.querySelector('TreinSoort').textContent,

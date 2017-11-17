@@ -1,4 +1,5 @@
 module.exports = {
+  base_uri: 'http://localhost:3000',
   ns: {
     auth: {
       username: 'jordy@springest.com',
@@ -16,8 +17,8 @@ module.exports = {
   },
   buienradar: {
     location: {
-      lat: 52.390115,
-      lng: 4.888836
+      lat: 52.39,
+      lng: 4.88
     }
   }
 }

@@ -1,21 +1,25 @@
 import config from '../config';
 
 const fetcher = () => {
-  return fetch(`https://br-gpsgadget-new.azurewebsites.net/data/raintext/?lat=${config.buienradar.location.lat}&lon=${config.buienradar.location.lng}`)
+  return fetch(`${config.base_uri}/buienradar-proxy/data/raintext/?lat=${config.buienradar.location.lat}&lon=${config.buienradar.location.lng}`)
          .then(response => response.text());
 }
 
 const parser = (text) => {
   return new Promise((resolve, reject) => {
-    debugger;
-    let timepoints = text.split('\n');
+    const timepoints = text.split('\r\n');
+    const points = [];
 
-    for(let point in timepoints) {
-      point = point.split('|');
-      timepoints.push({amount_rain: point[0], time:point[1]});
-    }
+    timepoints.forEach((timepoint) => {
+      if(timepoint){
+        let point = timepoint.split('|');
+        let amount = parseInt(point[0], 10);
+        let amount_of_rain = Math.pow(10, (amount-109)/32);
+        points.push({amount_rain: amount_of_rain, time:point[1]});
+      }
+    });
     
-    resolve(timepoints);
+    resolve(points);
   });
 }
 

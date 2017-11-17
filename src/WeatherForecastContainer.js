@@ -5,6 +5,16 @@ import WeatherForecastChart from './WeatherForecastChart';
 export default class WeatherForecastContainer extends React.Component {
   state = { timepoints: [] };
   componentDidMount() {
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.fetchWeatherForecast();
+    }, 1000 * 60 * 2);
+    this.fetchWeatherForecast();
+  }
+
+  fetchWeatherForecast() {
     WeatherForecastFetcher()
     .then(timepoints => this.setState({timepoints}));
   }
@@ -12,7 +22,7 @@ export default class WeatherForecastContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>Weather Forecast</h1>
+        <h2 className="title">Rain forecast</h2>
         <WeatherForecastChart timepoints={this.state.timepoints}/>
       </div>
     );

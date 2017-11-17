@@ -24,6 +24,13 @@ app.use('/ns-proxy', proxy('https://webservices.ns.nl', {
   }
 }));
 
+app.use('/buienradar-proxy', proxy('https://br-gpsgadget-new.azurewebsites.net', {
+  https: true,
+  filter: (req, res) => {
+      return req.method == 'GET';
+  }
+}));
+
 app.get('/get', (req, res) => {
   console.log(req.headers);
   res.send('Hello World');
