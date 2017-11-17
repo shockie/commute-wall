@@ -13,5 +13,11 @@ module.exports = {
       'Den Haag Centraal',
 
     ]
+  },
+  buienradar: {
+    location: {
+      lat: 52.390115,
+      lng: 4.888836
+    }
   }
 }
