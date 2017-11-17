@@ -5,7 +5,7 @@ import moment from 'moment';
 
 const fetcher = () => {
   const auth = Base64.encode(`${config.ns.auth.username}:${config.ns.auth.password}`);
-  const url = `${config.base_uri}/ns-proxy/ns-api-avt?station=${config.ns.base_station}`;
+  const url = `/ns-proxy/ns-api-avt?station=${config.ns.base_station}`;
 
   return fetch(url, {
     headers: {

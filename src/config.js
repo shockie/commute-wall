@@ -12,7 +12,8 @@ module.exports = {
       'Vlissingen',
       'Hoorn',
       'Den Haag Centraal',
-
+      'Zwolle',
+      'Amersfoort Vathorst'
     ]
   },
   buienradar: {

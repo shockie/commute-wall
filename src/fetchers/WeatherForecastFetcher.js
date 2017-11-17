@@ -1,7 +1,7 @@
 import config from '../config';
 
 const fetcher = () => {
-  return fetch(`${config.base_uri}/buienradar-proxy/data/raintext/?lat=${config.buienradar.location.lat}&lon=${config.buienradar.location.lng}`)
+  return fetch(`/buienradar-proxy/data/raintext/?lat=${config.buienradar.location.lat}&lon=${config.buienradar.location.lng}`)
          .then(response => response.text());
 }
 
