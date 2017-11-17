@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TrainDeparturesContainer from './TrainDeparturesContainer'
+import TrainDeparturesContainer from './TrainDeparturesContainer';
  
 document.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render(

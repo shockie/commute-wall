@@ -4,6 +4,14 @@ module.exports = {
       username: 'jordy@springest.com',
       password: 'FXLlEqmVjXSIgdkhkQPlm2y54Hc3G7VjQ1LfZjedNv7tSO0hMuFgig'
     },
-    station: 'Amsterdam'
+    base_station: 'Amsterdam',
+    stations: [
+      'Rotterdam Centraal',
+      'Zandvoort aan Zee',
+      'Vlissingen',
+      'Hoorn',
+      'Den Haag Centraal',
+
+    ]
   }
 }
