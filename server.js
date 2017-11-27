@@ -1,12 +1,8 @@
 const express = require('express');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpack = require('webpack');
-const webpackConfig = require('./webpack.config.js');
 const proxy = require('express-http-proxy');
 const app = express();
+const PORT = process.env.PORT || 5000
  
-const compiler = webpack(webpackConfig);
-
 app.use(express.static(__dirname + '/dist'));
  
 app.use('/ns-proxy', proxy('https://webservices.ns.nl', {
@@ -23,7 +19,7 @@ app.use('/buienradar-proxy', proxy('https://br-gpsgadget-new.azurewebsites.net',
   }
 }));
 
-const server = app.listen(4000, function() {
+const server = app.listen(PORT, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
