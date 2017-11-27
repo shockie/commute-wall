@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TrainDeparturesContainer from './TrainDeparturesContainer';
-import WeatherForecastContainer from './WeatherForecastContainer';
+import Dashboard from './components/Dashboard';
 
 import "./scss/main.scss";
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    React.createElement(TrainDeparturesContainer),
-    document.getElementById('train_departures')
-  );
-
-  ReactDOM.render(
-    React.createElement(WeatherForecastContainer),
-    document.getElementById('weatherforecast')
+    React.createElement(Dashboard),
+    document.getElementById('dashboard')
   );
 });

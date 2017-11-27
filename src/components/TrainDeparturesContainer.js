@@ -1,6 +1,6 @@
 import React from 'react';
 import TrainDeparture from './TrainDeparture'; 
-import TrainDeparturesFetcher from './fetchers/TrainDeparturesFetcher';
+import TrainDeparturesFetcher from '../fetchers/TrainDeparturesFetcher';
 
 export default class TrainDeparturesContainer extends React.Component {
   state = {

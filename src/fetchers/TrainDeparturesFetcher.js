@@ -27,7 +27,8 @@ const parser = (xml_data) => {
         end_station: train.querySelector('EindBestemming').textContent,
         track: train.querySelector('RouteTekst') ? train.querySelector('RouteTekst').textContent : '',
         train_type: train.querySelector('TreinSoort').textContent,
-        platform: train.querySelector('VertrekSpoor').textContent
+        platform: train.querySelector('VertrekSpoor').textContent,
+        delay: train.querySelector('VertrekVertragingTekst') ? train.querySelector('VertrekVertragingTekst').textContent : false
       });
     });
 

@@ -1,4 +1,10 @@
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const extractSass = new ExtractTextPlugin({
+      filename: "[name].[contenthash].css",
+      disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -20,7 +26,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        use: extractSass.extract({
+          use: [{
+              loader: "css-loader"
+          }, {
+              loader: "sass-loader"
+          }],
+          // use style-loader in development
+          fallback: "style-loader"       
+        })
       }
     ]
   },
@@ -29,4 +43,12 @@ module.exports = {
       path.join(__dirname, 'node_modules'),
     ],
   },
+  plugins: [
+    extractSass,
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: path.join(__dirname, 'src', 'index.html'),
+      filename: path.join(__dirname, 'dist', 'index.html')
+    })
+  ]
 };
